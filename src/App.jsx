@@ -6,10 +6,10 @@ import "./App.css";
 function App() {
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("pkr");
+  const currencyInfo = useCurrencyInfo(from);
   const [amount, setAmount] = useState(0);
   const [convertedAmount, setConvertedAmount] = useState(0);
 
-  const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
 
   const swap = () => {
@@ -23,8 +23,6 @@ function App() {
     setConvertedAmount(amount * currencyInfo[to]);
   };
 
-  const singleUnitRate = currencyInfo[to] || 0;
-
   return (
     <div className="bg-gradient-mesh flex flex-col items-center justify-center p-2 md:p-4 min-h-screen relative overflow-hidden">
       <div className="fixed bottom-0 left-0 w-full pointer-events-none z-0">
@@ -36,10 +34,10 @@ function App() {
         <div className="p-4 md:p-8 flex flex-col gap-4 md:gap-6">
           <div className="text-center pb-2">
             <h1 className="text-xl md:text-3xl font-bold text-[#111318] mb-1 md:mb-2">
-              Currency Exchange
+              Currency Convertor
             </h1>
             <p className="text-[#616f89] text-xs md:text-sm">
-              Check live foreign currency exchange rates.
+              Check live foreign currency rates.
             </p>
           </div>
 
@@ -92,7 +90,7 @@ function App() {
                   </span>
                 </div>
                 <span className="text-[#135bec] font-bold">
-                  1 {from.toUpperCase()} = {singleUnitRate.toFixed(4)}{" "}
+                  1 {from.toUpperCase()} = {(currencyInfo[to] || 0).toFixed(4)}{" "}
                   {to.toUpperCase()}
                 </span>
               </div>
@@ -102,8 +100,10 @@ function App() {
               type="submit"
               className="w-full h-12 md:h-14 bg-[#135bec] hover:bg-blue-700 text-white rounded-xl font-bold text-sm md:text-lg shadow-glow hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              Convert {to.toUpperCase()} to {from.toUpperCase()}
-              <span className="material-symbols-outlined text-lg md:text-2xl">arrow_forward</span>
+              Convert {from.toUpperCase()} to {to.toUpperCase()}
+              <span className="material-symbols-outlined text-lg md:text-2xl">
+                arrow_forward
+              </span>
             </button>
           </form>
         </div>
