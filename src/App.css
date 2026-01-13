@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f8;
+  color: #111318;
+}
+
+.bg-gradient-mesh {
+  background-color: #f6f6f8;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(220, 85%, 65%, 0.2) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 0%, hsla(180, 75%, 60%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(260, 70%, 70%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(200, 80%, 60%, 0.2) 0px, transparent 50%);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Glass Panel Styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Glass Input Styling */
+.glass-input {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus-within {
+  border-color: #135bec;
+  box-shadow: 0 0 0 2px rgba(19, 91, 236, 0.2);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px -5px rgba(19, 91, 236, 0.5);
+}
+
+.custom-select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  color: #111318;
+}
