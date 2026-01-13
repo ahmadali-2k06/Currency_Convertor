@@ -1,5 +1,3 @@
-## Full Description
-
 This application provides a seamless experience for users to check and convert foreign exchange rates. It leverages modern web technologies to deliver a fast and aesthetically pleasing interface.
 
 ### Key Features
